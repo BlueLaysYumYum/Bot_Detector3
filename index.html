@@ -21,12 +21,14 @@
                 console.log(data);
                 var result=data.result;
                 var url;
-                if(result==1){
-                    document.getElementById("result").innerText="IT'S NOT A FAKE ACCOUNT";
+                if(result==0){
+                    document.getElementById("result").innerText="IT'S A VERIFIED ACCOUNT";
                     url="image/verified.jpg"
-                }else{
+                }else if(result==1){
                     document.getElementById("result").innerText="IT'S A FAKE ACCOUNT";
                     url="image/fake.png";
+                }else if(result==-1){
+                    document.getElementById("result").innerText="USER NOT FOUND";
                 }
                 document.getElementById("image").src=url;
             })
