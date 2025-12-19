@@ -6,7 +6,7 @@ from datetime import datetime,timezone
 
 
 client = tweepy.Client(
-    bearer_token="",
+    bearer_token="AAAAAAAAAAAAAAAAAAAAANnv6AEAAAAAo3tOU2Vt28%2BbKhwSEUqlmziaCRE%3D417XbZr8NQgrIW3KGzAihcia956mlXxVLF330q7aTllGYvPlWw",
     wait_on_rate_limit=True
 )
 
@@ -78,17 +78,18 @@ location=user_data.location
 #profile background
 profile_background_url=user_data.profile_banner_url
 
-print("Username: @",username.strip())
-print("Profile:", is_defaults)
-print("followers:",followers)
-print("following:",following)
-print("follower ratio:",follower_following_ratio)
-print("Post count:",posts)
-print("account days created:",account_age_days)
-print("bio length:",bio_length)
-print("verified:",verified)
-print("location:",location)
-print("profile bg link:",profile_background_url)
+# print("Username: @",username.strip())
+# print("Profile:", is_defaults)
+# print("followers:",followers)
+# print("following:",following)
+# print("follower ratio:",follower_following_ratio)
+# print("Post count:",posts)
+# print("account days created:",account_age_days)
+# print("bio length:",bio_length)
+# print("verified:",verified)
+# print("location:",location)
+# print("profile bg link:",profile_background_url)
+
 #Integration
 
 model_data = joblib.load("./bot_detector.pkl")
@@ -106,14 +107,14 @@ user_value = pd.DataFrame(
       "verified":verified,
       "profile_image_url":profile_link,
       "location":location,
-      'profile_background_url':profile_background_url
+      # 'profile_background_url':profile_background_url
       }]
 )
 print(user_value)
 def data_unloading(data):
     data["follower_to_following"] = data['followers_count'] / (data['friends_count'] + 1)
     data['has_location'] = data['location'].notnull().astype(int)
-    data['profile_use_background_image'] = (data['profile_background_url']).astype(int)
+    # data['profile_use_background_image'] = (data['profile_background_url']).astype(int)
     data["post_frequency"] = data['post_count'] / (data['account_age_days'] + 1)
     X_param = data[features_list]
     return X_param

@@ -6,8 +6,9 @@ from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 features_list = ["followers_count", "friends_count", "follower_to_following", "post_count", "has_location",
-                     "default_profile_image", "profile_use_background_image", "verified", 'bio_length',
+                     "default_profile_image", "verified", 'bio_length',
                      "account_age_days","post_frequency"]
+
 #TODO add function
 # func for division was messing up at later parts
 def data_unloading(data):
