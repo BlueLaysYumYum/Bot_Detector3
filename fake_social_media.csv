@@ -1,4 +1,4 @@
-platform,has_profile_pic,bio_length,username_randomness,followers,following,follower_following_ratio,account_age_days,posts,posts_per_day,caption_similarity_score,content_similarity_score,follow_unfollow_rate,spam_comments_rate,generic_comment_rate,suspicious_links_in_bio,verified,is_fake
+qplatform,has_profile_pic,bio_length,username_randomness,followers,following,follower_following_ratio,account_age_days,posts,posts_per_day,caption_similarity_score,content_similarity_score,follow_unfollow_rate,spam_comments_rate,generic_comment_rate,suspicious_links_in_bio,verified,is_fake
 Twitter,1,180,1,431,679,0.633823529,941,194,0.205944798,0.699443713,0.243579454,456,44,63,1,1,1
 Instagram,1,214,0,426,729,0.583561644,3164,202,0.063823065,0.538004785,0.121999896,98,196,79,0,0,1
 Twitter,1,87,0,426,721,0.590027701,903,225,0.248893805,0.858449712,0.835423973,136,171,139,0,1,1
