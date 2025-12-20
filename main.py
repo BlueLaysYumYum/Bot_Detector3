@@ -4,6 +4,7 @@ import joblib
 from datetime import datetime,timezone
 from flask import Flask,jsonify,request
 from flask_cors import CORS
+from sklearn.linear_model import LogisticRegression
 
 app=Flask(__name__)
 CORS(app)
@@ -126,6 +127,10 @@ def getusername():
         return X_param
     input_data = data_unloading(user_value)
     prediction = model.predict(input_data)
+    probability_main = XGB_model.predict_proba(X_check)
+    #percentage calc
+    human_proba=probability_main[0][0]*100
+    bot_proba=probability_main[0][1]*100
     result=int(prediction[0])
     return jsonify({
         "username":username,
