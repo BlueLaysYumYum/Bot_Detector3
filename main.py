@@ -132,9 +132,19 @@ def getusername():
     human_proba=probability_main[0][0]*100
     bot_proba=probability_main[0][1]*100
     result=int(prediction[0])
+    probability_main = model.predict_proba(input_data)
+    #percentage calc
+    human_proba=probability_main[0][0]*100
+    bot_proba=probability_main[0][1]*100
+    if result==0:
+        prob=str(human_proba)
+    else:
+        prob=str(bot_proba)
+    
     return jsonify({
         "username":username,
-        "result":result
+        "result":result,
+        "probability":prob 
     })
 
 if __name__ == "__main__":
