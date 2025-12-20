@@ -48,6 +48,7 @@
         background-attachment: fixed;
     }
     #box{
+        display: flex;
         border-style: solid;
         background-color: #161616;
         border-color: rgb(238, 109, 109);
@@ -63,6 +64,15 @@
         font-size: medium;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         align-items: center;
+        flex-direction: column;
+        flex: 1;
+    }
+    ul {
+        list-style-type: none;
+    }
+    a {
+        text-decoration: none;
+        color: grey;
     }
     h2{
         color: rgb(243, 34, 34);
@@ -71,16 +81,51 @@
         margin: 100px;
         color: white;
     }
+    .header {
+        background: rgb(238, 109, 109);
+        border-bottom: 1px solid #ddd;
+        box-shadow: 0 0 8px rgba(0,0,0,.1);
+}
+    .header {
+  display: flex;
+  /*justify-content: space-between;*/
+  padding: 8px;
+}
+
+    ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      gap: 16px;
+        align-items: center;
+
+    }
+    .button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+
     </style>
 </head>
 <body>
+    <div class = "header">
+        <div class="logo"></div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test 2</a></li>
+            </ul>
+        </div>
+    </div>
+
     <div id="box">
     <center>
         <form onsubmit="getdata();return false">
             <h2>IDENTIFY FAKE ACCOUNT</h2>
             <Label>Enter Username: </Label>
             <input id="name" type="text" placeholder="Enter Username(Without @)" required>
-            <input type="submit" value="send">
+            <input class="button" type="submit" value="send">
         </form>
         <p id="result"></p>
         <img id="image" width="100px">
