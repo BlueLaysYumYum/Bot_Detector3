@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAKE SOCIAL MEDIA IDENTIFICATION</title>
     <script>
-        function get(){
+        function getdata(){
             var username=document.getElementById("name").value;
             fetch("http://127.0.0.1:5000/getusername", {
                 method: "POST",
@@ -18,12 +18,19 @@
             })
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 var result=data.result;
-                if(result==1){
-                    document.getElementById("result").innerText="IT'S NOT A FAKE ACCOUNT";
-                }else{
+                var url;
+                if(result==0){
+                    document.getElementById("result").innerText="IT'S A VERIFIED ACCOUNT";
+                    url="image/verified.jpg"
+                }else if(result==1){
                     document.getElementById("result").innerText="IT'S A FAKE ACCOUNT";
+                    url="image/fake.png";
+                }else if(result==-1){
+                    document.getElementById("result").innerText="USER NOT FOUND";
                 }
+                document.getElementById("image").src=url;
             })
             .catch(error => {
                 console.error("Error:", error);
@@ -33,7 +40,8 @@
     </script>
     <style>
     body{
-        background-image: url("image/x_bgB.png");
+        /* background-image: url("image/x_bgB.png"); */
+        background-color: #262626;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -41,38 +49,41 @@
     }
     #box{
         border-style: solid;
-        border-color:cyan ;
+        background-color: #161616;
+        border-color: rgb(238, 109, 109);
         border-width: 2px;
-        width: 50%;
+        width: 75%;
         height: 50%;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        padding: 50px;
+        padding: 10px;
         color: white;
         font-size: medium;
-        background: linear-gradient(180deg,rgb(0, 0, 0),rgb(168, 168, 168));
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        align-items: center;
+    }
+    h2{
+        color: rgb(243, 34, 34);
     }
     h1{
+        margin: 100px;
         color: white;
     }
     </style>
 </head>
 <body>
-    <div>
-    <center>
-        <h1>IDENTIFY FAKE ACCOUNT</h1>
-    </center>
-    </div>
     <div id="box">
     <center>
-        <form onsubmit="get();return false">
-            <Label>ENTER USERNAME: </Label>
+        <form onsubmit="getdata();return false">
+            <h2>IDENTIFY FAKE ACCOUNT</h2>
+            <Label>Enter Username: </Label>
             <input id="name" type="text" placeholder="Enter Username(Without @)" required>
             <input type="submit" value="send">
         </form>
         <p id="result"></p>
+        <img id="image" width="100px">
     </center>
     </div>
 </body>
