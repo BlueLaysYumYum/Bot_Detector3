@@ -127,7 +127,7 @@ def getusername():
         return X_param
     input_data = data_unloading(user_value)
     prediction = model.predict(input_data)
-    probability_main = XGB_model.predict_proba(X_check)
+    probability_main = model.predict_proba(input_data)
     #percentage calc
     human_proba=probability_main[0][0]*100
     bot_proba=probability_main[0][1]*100

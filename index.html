@@ -7,6 +7,7 @@
     <script>
         function getdata(){
             var username=document.getElementById("name").value;
+            var url;
             fetch("http://127.0.0.1:5000/getusername", {
                 method: "POST",
                 headers: {
@@ -20,7 +21,6 @@
             .then(data => {
                 console.log(data);
                 var result=data.result;
-                var url;
                 var probability=data.probability;
                 if(result==0){
                     document.getElementById("result").innerText="IT'S A VERIFIED ACCOUNT";
@@ -40,6 +40,7 @@
             });
             
         }        
+
     </script>
     <style>
     body{
@@ -130,7 +131,7 @@
             <h2>IDENTIFY FAKE ACCOUNT</h2>
             <Label>Enter Username: </Label>
             <input id="name" type="text" placeholder="Enter Username(Without @)" required>
-            <input class="button" type="submit" value="send">
+            <input class="button" type="submit" value="send" onclick="">
         </form>
         <p id="result"></p>
         <p id="probability"></p>
