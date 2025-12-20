@@ -21,12 +21,15 @@
                 console.log(data);
                 var result=data.result;
                 var url;
+                var probability=data.probability;
                 if(result==0){
                     document.getElementById("result").innerText="IT'S A VERIFIED ACCOUNT";
-                    url="image/verified.jpg"
+                    url="image/verified.jpg";
+                    document.getElementById("probability").innerText="Confidence: "+probability+"%"; 
                 }else if(result==1){
                     document.getElementById("result").innerText="IT'S A FAKE ACCOUNT";
                     url="image/fake.png";
+                    document.getElementById("probability").innerText="Confidence: "+probability+"%"; 
                 }else if(result==-1){
                     document.getElementById("result").innerText="USER NOT FOUND";
                 }
@@ -130,6 +133,7 @@
             <input class="button" type="submit" value="send">
         </form>
         <p id="result"></p>
+        <p id="probability"></p>
         <img id="image" width="100px">
     </center>
     </div>
