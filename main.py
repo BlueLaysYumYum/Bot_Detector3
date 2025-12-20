@@ -101,7 +101,7 @@ def getusername():
     model_data = joblib.load("./bot_detector.pkl")
     model = model_data['model']
     features_list = model_data['features']
-    print(features_list)
+    # print(features_list)
     user_value = pd.DataFrame(
         [{"name":username.strip(),
           "default_profile_image":is_defaults,
@@ -116,7 +116,7 @@ def getusername():
           # 'profile_background_url':profile_background_url
         }]
         )
-    print(user_value)
+    # print(user_value)
     def data_unloading(data):
         data["follower_to_following"] = data['followers_count'] / (data['friends_count'] + 1)
         data['has_location'] = data['location'].notnull().astype(int)
