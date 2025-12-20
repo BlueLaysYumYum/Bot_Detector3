@@ -7,6 +7,7 @@
     <script>
         function getdata(){
             var username=document.getElementById("name").value;
+            var url;
             fetch("http://127.0.0.1:5000/getusername", {
                 method: "POST",
                 headers: {
@@ -20,7 +21,6 @@
             .then(data => {
                 console.log(data);
                 var result=data.result;
-                var url;
                 var probability=data.probability;
                 if(result==0){
                     document.getElementById("result").innerText="IT'S A VERIFIED ACCOUNT";
@@ -40,6 +40,7 @@
             });
             
         }        
+
     </script>
     <style>
     body{
@@ -74,9 +75,13 @@
         list-style-type: none;
     }
     a {
-        text-decoration: none;
+        text-decoration: underline;
         color: white;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+    }
+    a:hover{
+        color: cyan;
     }
     h2{
         color: rgb(243, 34, 34);
@@ -119,7 +124,7 @@
         <div class="links">
             <ul>
                 <li><a href="#"><img src="image/github.ico" width="30px"></a></li>
-                <li><a href="https://github.com/BlueLaysYumYum/Bot_Detector3">GITHUB</a></li>
+                <li><a href="https://github.com/BlueLaysYumYum/Bot_Detector3">GITHUB LINK</a></li>
             </ul>
         </div>
     </div>
@@ -130,7 +135,7 @@
             <h2>IDENTIFY FAKE ACCOUNT</h2>
             <Label>Enter Username: </Label>
             <input id="name" type="text" placeholder="Enter Username(Without @)" required>
-            <input class="button" type="submit" value="send">
+            <input class="button" type="submit" value="send" onclick="">
         </form>
         <p id="result"></p>
         <p id="probability"></p>
